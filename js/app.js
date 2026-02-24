@@ -192,48 +192,20 @@ function initScrollToTop() {
 // ─── Modal ───────────────────────────────────────────────────────────────────
 
 /**
- * Generic modal open / close with scale animation.
- * Exposes window.openModal() and window.closeModal().
- * Closes on overlay click, close button, or Escape.
+ * Keeps backward-compatible CTA behavior:
+ * any existing onclick="openModal()" now scrolls to the inline lead form.
  */
 function initModal() {
-    const modal = document.getElementById('modal');
-    const overlay = document.getElementById('modalOverlay');
-    const closeBtnEl = document.getElementById('modalClose');
-    const content = document.getElementById('modalContent');
-
-    if (!modal || !content) return;
-
     window.openModal = () => {
-        state.isModalOpen = true;
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        const target = document.getElementById('leadFormAnchor') || document.getElementById('contacts');
+        if (!target) return;
 
-        requestAnimationFrame(() => {
-            content.classList.remove('scale-95', 'opacity-0');
-            content.classList.add('scale-100', 'opacity-100');
-        });
+        const headerHeight = document.getElementById('main-header')?.offsetHeight || 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 24;
+        window.scrollTo({ top, behavior: 'smooth' });
     };
 
-    const closeModal = () => {
-        state.isModalOpen = false;
-        content.classList.add('scale-95', 'opacity-0');
-        content.classList.remove('scale-100', 'opacity-100');
-
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }, 300);
-    };
-
-    window.closeModal = closeModal;
-
-    overlay?.addEventListener('click', closeModal);
-    closeBtnEl?.addEventListener('click', closeModal);
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && state.isModalOpen) closeModal();
-    });
+    window.closeModal = () => {};
 }
 
 // ─── FAQ Accordion ───────────────────────────────────────────────────────────
@@ -271,8 +243,7 @@ function initFAQ() {
 // ─── Forms ───────────────────────────────────────────────────────────────────
 
 /**
- * Phone auto-formatting (+7 (xxx) xxx-xx-xx) and form submission
- * handling for #contactForm and #modalForm.
+ * Phone auto-formatting (+7 (xxx) xxx-xx-xx).
  */
 function initForms() {
     // ── Phone formatting ──
@@ -294,62 +265,7 @@ function initForms() {
         });
     });
 
-    // ── Form submission ──
-    const contactForm = document.getElementById('contactForm');
-    const modalForm = document.getElementById('modalForm');
-
-    [contactForm, modalForm].forEach((form) => {
-        if (form) form.addEventListener('submit', handleFormSubmit);
-    });
-}
-
-/**
- * Validate the phone number, show a loading spinner on the submit button,
- * simulate a 1.5 s API call, reset the form, show a success notification,
- * and close the modal if the submission came from the modal form.
- */
-function handleFormSubmit(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const data = Object.fromEntries(new FormData(form));
-
-    // Validate phone (should have at least 12 chars: +7XXXXXXXXXX)
-    const phone = (data.phone || '').replace(/\s/g, '');
-    if (phone.length < 12) {
-        showNotification('Пожалуйста, введите корректный номер телефона', 'error');
-        return;
-    }
-
-    // Show loading spinner on the button
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalHTML = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-        <svg class="animate-spin h-5 w-5 mx-auto" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10"
-                    stroke="currentColor" stroke-width="4" fill="none"></circle>
-            <path class="opacity-75" fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962
-                     7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>`;
-
-    // Simulate API call (1.5 s)
-    setTimeout(() => {
-        form.reset();
-        submitBtn.innerHTML = originalHTML;
-        submitBtn.disabled = false;
-
-        showNotification(
-            'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.',
-            'success'
-        );
-
-        // Close modal if the submission came from the modal form
-        if (form.id === 'modalForm' && typeof window.closeModal === 'function') {
-            window.closeModal();
-        }
-    }, 1500);
+    // Legacy form handler removed: lead capture is now Bitrix inline form.
 }
 
 // ─── Notifications ───────────────────────────────────────────────────────────

@@ -1887,90 +1887,14 @@
                 <p class="text-gray-400 mb-8">
                   Заполните форму и получите расчёт стоимости
                 </p>
-                <form id="contactForm" class="space-y-5">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Ваше имя"
-                      required
-                      class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-                    /><input
-                      type="tel"
-                      name="phone"
-                      placeholder="Телефон *"
-                      required
-                      class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-                    />
-                  </div>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-                    /><input
-                      type="text"
-                      name="city"
-                      placeholder="Ваш город"
-                      class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-                    />
-                  </div>
-                  <select
-                    name="type"
-                    required
-                    class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none cursor-pointer"
+                <div id="leadFormAnchor" class="space-y-5">
+                  <script
+                    data-b24-form="inline/7/wvujhs"
+                    data-skip-moving="true"
                   >
-                    <option value="" class="bg-slate-900">
-                      Что вас интересует?
-                    </option>
-                    <option value="classic" class="bg-slate-900">
-                      Падел-корты под ключ
-                    </option>
-                    <option value="equipment" class="bg-slate-900">
-                      Оборудование и инвентарь
-                    </option>
-                    <option value="consultation" class="bg-slate-900">
-                      Консультация по бизнесу
-                    </option>
-                  </select>
-                  <textarea
-                    name="message"
-                    rows="3"
-                    placeholder="Дополнительные пожелания"
-                    class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
-                  ></textarea>
-                  <div class="flex items-start space-x-3">
-                    <input
-                      type="checkbox"
-                      id="privacy"
-                      name="privacy"
-                      required
-                      class="w-5 h-5 rounded border-white/20 bg-transparent text-purple-500 focus:ring-purple-500 mt-0.5"
-                    /><label for="privacy" class="text-sm text-gray-400"
-                      >Согласен на обработку персональных данных</label
-                    >
-                  </div>
-                  <button
-                    type="submit"
-                    class="btn-primary w-full py-4 rounded-2xl text-white font-semibold text-lg flex items-center justify-center space-x-2"
-                  >
-                    <span>Получить предложение</span
-                    ><svg
-                      class="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </button>
-                </form>
+                    (function(w,d,u){var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})(window,document,'https://cdn-ru.bitrix24.kz/b28519102/crm/form/loader_7.js');
+                  </script>
+                </div>
               </div>
             </div>
           </div>
@@ -2147,86 +2071,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- MODAL -->
-    <div id="modal" class="fixed inset-0 z-50 hidden">
-      <div
-        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        id="modalOverlay"
-      ></div>
-      <div class="absolute inset-0 flex items-center justify-center p-4">
-        <div
-          class="modal-content glass-strong rounded-3xl p-8 w-full max-w-md relative transform scale-95 opacity-0 transition-all duration-300"
-          id="modalContent"
-        >
-          <button
-            id="modalClose"
-            class="absolute top-4 right-4 w-10 h-10 rounded-xl glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all"
-          >
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-          <h3 class="text-2xl font-bold text-white mb-2">Заказать звонок</h3>
-          <p class="text-gray-400 mb-6">Оставьте номер и мы перезвоним</p>
-          <form id="modalForm" class="space-y-5">
-            <input
-              type="text"
-              name="name"
-              placeholder="Ваше имя"
-              required
-              class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-            /><input
-              type="tel"
-              name="phone"
-              placeholder="Телефон"
-              required
-              class="w-full px-5 py-4 rounded-2xl glass border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-            />
-            <div class="flex items-start space-x-3">
-              <input
-                type="checkbox"
-                id="modalPrivacy"
-                name="privacy"
-                required
-                class="w-5 h-5 rounded border-white/20 bg-transparent text-purple-500 focus:ring-purple-500 mt-0.5"
-              /><label for="modalPrivacy" class="text-sm text-gray-400"
-                >Согласен на обработку персональных данных</label
-              >
-            </div>
-            <button
-              type="submit"
-              class="btn-primary w-full py-4 rounded-2xl text-white font-semibold flex items-center justify-center space-x-2"
-            >
-              <span>Отправить</span
-              ><svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
-              </svg>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
 
     <button
       id="scrollToTop"
