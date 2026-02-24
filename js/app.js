@@ -453,7 +453,7 @@ function initGSAPAnimations() {
             scrollTrigger: {
                 trigger: header,
                 start: 'top 80%',
-                toggleActions: 'play none none reverse'
+                once: true
             },
             opacity: 0,
             y: 50,
@@ -482,14 +482,13 @@ function initGSAPAnimations() {
     animateCards('.advantage-card');
     animateCards('.catalog-card', { scale: 0.95 });
     animateCards('.project-card');
-    animateCards('.business-stat', { delay: undefined });
     animateCards('.why-card');
     animateCards('.review-card');
 
-    // Re-apply stagger-style delay for business-stat and review-card
+    // Business stats - animate once and stay visible
     gsap.utils.toArray('.business-stat').forEach((el, i) => {
         gsap.from(el, {
-            scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' },
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true },
             opacity: 0, y: 50, duration: 0.6, delay: i * 0.15
         });
     });
