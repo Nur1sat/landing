@@ -1,0 +1,80 @@
+<!-- Hero Section Component -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-30">
+            <source src="data/video/hero-background.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95"></div>
+    </div>
+
+    <!-- Floating Orbs -->
+    <div class="orb absolute top-20 left-10 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
+    <div class="orb absolute bottom-20 right-10 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-32">
+        <div class="hero-content">
+            <!-- Badge -->
+            <div class="hero-badge inline-flex items-center space-x-2 glass-strong rounded-full px-5 py-2 mb-8">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <span class="text-sm text-gray-300">Официальный представитель World Padel Tour</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6">
+                <span class="text-gradient block mb-2">Падел-кортов</span>
+                <span class="text-white glow-text">под ключ</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10">
+                Строим корты мечты. От проекта до первых матчей за
+                <span class="text-purple-400 font-semibold"> 25 дней</span>.
+                <span class="text-green-400"> Гарантия 5 лет</span> на конструкцию.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="hero-buttons flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <button onclick="openModal()" class="btn-primary w-full sm:w-auto px-8 py-4 rounded-2xl text-white font-semibold text-lg flex items-center justify-center space-x-2 group shadow-lg shadow-purple-500/30">
+                    <span>Рассчитать стоимость</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </button>
+                <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300 border border-white/20">
+                    Смотреть каталог
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+                <div class="stat-item glass-strong rounded-2xl p-5">
+                    <div class="text-3xl sm:text-4xl font-bold text-gradient-accent stat-number">100+</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Построенных кортов</div>
+                </div>
+                <div class="stat-item glass-strong rounded-2xl p-5">
+                    <div class="text-3xl sm:text-4xl font-bold text-gradient-accent stat-number">5 лет</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Гарантии</div>
+                </div>
+                <div class="stat-item glass-strong rounded-2xl p-5">
+                    <div class="text-3xl sm:text-4xl font-bold text-gradient-accent stat-number">25 дней</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Средний монтаж</div>
+                </div>
+                <div class="stat-item glass-strong rounded-2xl p-5">
+                    <div class="text-3xl sm:text-4xl font-bold text-gradient-accent stat-number">98%</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Довольных клиентов</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <a href="#advantages" class="flex flex-col items-center text-gray-500 hover:text-purple-400 transition-colors duration-300">
+            <div class="w-6 h-10 rounded-full border-2 border-gray-600 flex justify-center pt-2 mb-2">
+                <div class="w-1.5 h-3 bg-purple-500 rounded-full animate-bounce"></div>
+            </div>
+        </a>
+    </div>
+</section>
