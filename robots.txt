@@ -1,0 +1,16 @@
+# robots.txt — PADELGO
+# Allow all search engines to crawl everything
+
+User-agent: *
+Allow: /
+Disallow: /server.py
+Disallow: /data/
+Disallow: /screenshot/
+
+# Sitemaps
+Sitemap: https://padelgo.kz/sitemap.xml
+
+# Yandex-specific
+User-agent: Yandex
+Allow: /
+Host: https://padelgo.kz
